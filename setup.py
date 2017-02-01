@@ -1,3 +1,7 @@
+"""
+hdmedians: High-dimensional medians.
+"""
+
 from setuptools import setup, find_packages
 
 setup(name='hdmedians',
