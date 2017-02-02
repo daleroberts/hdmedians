@@ -10,4 +10,4 @@ $$
   \text{medoid} := \operatorname{argmin}_{\mathbf{x} \in \mathbb{X}} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
 $$
 
-Testing again and again and again $12\pi$
+Testing again and again and again $16\pi$
