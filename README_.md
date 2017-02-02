@@ -10,4 +10,4 @@ $$
   \text{medoid} := \argmin_{\x \in \X} \sum_{i=1}^n \|\x - \x_i\|.
 $$
 
-Testing again and again and again
+Testing again and again and again $\pi$
