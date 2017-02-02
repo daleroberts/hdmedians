@@ -12,8 +12,8 @@ extensions = [Extension('hdmedians.geomedian',
 
 setup(name='hdmedians',
       packages=find_packages(),
-      setup_requires=['nose>=1.0'],
-      install_requires=['six', 'numpy'],
+      setup_requires=['nose>=1.0', 'Cython >= 0.16'],
+      install_requires=['numpy'],
       version='0.1',
       description='High-dimensional medians',
       url='http://github.com/daleroberts/hdmedians',
@@ -21,4 +21,3 @@ setup(name='hdmedians',
       author_email='dale.o.roberts@gmail.com',
       license='GPL3',
       ext_modules = cythonize(extensions))
-      
