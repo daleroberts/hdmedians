@@ -4,7 +4,6 @@ Tests.
 
 import numpy as np
 import hdmedians as hd
-import sys
 
 from numpy.testing import assert_equal, assert_array_almost_equal
 from nose.tools import assert_true, assert_raises

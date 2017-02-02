@@ -15,7 +15,7 @@ def medoid(a, axis=1, indexonly=False):
     a : array_like
         Input array or object that can be converted to an array.
     axis : int
-        Axis or axes along which the medians are computed. The default
+        Axis along which the medoid is computed. The default
         is to compute the median along the last axis of the array.
     indexonly : bool, optional
         If this is set to True, only the index of the medoid is returned.
