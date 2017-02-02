@@ -3,11 +3,9 @@
 Fast implementations of some high-dimensional medians.
 
 
-## Medoid
+### Medoid
 
 Given a finite set $\mathbb{X}$ of $p$-band pixel observations modelled by vectors $\mathbb{X}=\{\mathbf{x}_1, \ldots, \mathbf{x}_n\}$, the medoid of these observations is
 $$
   \text{medoid} := \argmin_{\x \in \X} \sum_{i=1}^n \|\x - \x_i\|.
 $$
-
-Blah blah blah
