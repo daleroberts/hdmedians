@@ -1,16 +1,15 @@
 """
-Medoid implementations.
+Medoid.
 """
 import numpy as np
 
-def euclidean(x, y):
-    return np.sqrt(np.sum(np.square(x - y)))
 
-def medoid(a, axis=None, keepdims=False, indexonly=False):
+def medoid(a, axis=1, indexonly=False):
     """
     Compute the medoid along the specified axis.
 
     Returns the medoid of the array elements.
+
     Parameters
     ----------
     a : array_like
@@ -18,30 +17,30 @@ def medoid(a, axis=None, keepdims=False, indexonly=False):
     axis : int
         Axis or axes along which the medians are computed. The default
         is to compute the median along the last axis of the array.
-    keepdims : bool, optional
-        If this is set to True, the axes which are reduced are left
-        in the result as dimensions with size one. With this option,
-        the result will broadcast correctly against the original `arr`.
+    indexonly : bool, optional
+        If this is set to True, only the index of the medoid is returned.
     Returns
     -------
-    medoid : ndarray
-        A new array holding the result. If the input contains integers
-        or floats smaller than ``float64``, then the output data-type is
-        ``np.float64``.  Otherwise, the data-type of the output is the
-        same as that of the input. If `out` is specified, that array is
-        returned instead.
+    medoid : ndarray or int
     """
-    if axis == 0:
-        a = a.T
-
-    _, n = a.shape
-    d = np.empty(n)
-    for i in range(n):
-        d[i] = np.sum([euclidean(a[:, i], a[:, j])
-                       for j in range(n) if j != i])
-    i = np.argmin(d)
-
-    if indexonly:
-        return i
+    if axis == 1:
+        diff = a.T[:, None, :] - a.T
+        idx = np.argmin(np.sum(np.sqrt(np.einsum('ijk,ijk->ij',
+                                                 diff, diff)), axis=1))
+        if indexonly:
+            return idx
+        else:
+            return a[:, idx]
+    elif axis == 0:
+        diff = a[:, None, :] - a
+        idx = np.argmin(np.sum(np.sqrt(np.einsum('ijk,ijk->ij',
+                                                 diff, diff)), axis=1))
+        if indexonly:
+            return idx
+        else:
+            return a[idx, :]
     else:
-        return a[:, i]
+        raise ValueError("Array must be two-dimensional.")
+
+# SLOWER:
+# idx = np.argmin(np.sum(np.sqrt(np.sum(np.square(a[None,:,:].T-a[None,:,:]),axis=1)),axis=1))
