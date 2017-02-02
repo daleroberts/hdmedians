@@ -9,3 +9,5 @@ Given a finite set $\mathbb{X}$ of $p$-band pixel observations modelled by vecto
 $$
   \text{medoid} := \argmin_{\x \in \X} \sum_{i=1}^n \|\x - \x_i\|.
 $$
+
+Testing
