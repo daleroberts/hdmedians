@@ -10,7 +10,7 @@ clean:
 	@rm -fr hdmedians/*.so
 	@rm -fr hdmedians/*.c
 
-doc: README_.md
+doc: docs/README_.md
 	@python3 -m readme2tex --output README.md --svgdir . --project hdmedians --usepackage "stix" --rerender docs/README_.md
 # hack to make images work
 	@for f in $(wildcard docs/*.svg); do cairosvg -d 300 $$f -o $${f/svg/png}; done
