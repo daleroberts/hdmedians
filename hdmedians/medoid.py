@@ -25,22 +25,23 @@ def medoid(a, axis=1, indexonly=False):
     """
     if axis == 1:
         diff = a.T[:, None, :] - a.T
-        idx = np.argmin(np.sum(np.sqrt(np.einsum('ijk,ijk->ij',
-                                                 diff, diff)), axis=1))
+        ssum = np.einsum('ijk,ijk->ij', diff, diff)
+        idx = np.argmin(np.sum(np.sqrt(ssum), axis=1))
         if indexonly:
             return idx
         else:
             return a[:, idx]
     elif axis == 0:
         diff = a[:, None, :] - a
-        idx = np.argmin(np.sum(np.sqrt(np.einsum('ijk,ijk->ij',
-                                                 diff, diff)), axis=1))
+        ssum = np.einsum('ijk,ijk->ij', diff, diff)
+        idx = np.argmin(np.sum(np.sqrt(ssum), axis=1))
         if indexonly:
             return idx
         else:
             return a[idx, :]
     else:
         raise ValueError("Array must be two-dimensional.")
+
 
 # SLOWER:
 # idx = np.argmin(np.sum(np.sqrt(np.sum(np.square(a[None,:,:].T-a[None,:,:]),axis=1)),axis=1))
