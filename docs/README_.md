@@ -14,19 +14,39 @@ $$
   \mathbf{m} := \operatorname{argmin}_{\mathbf{x} \in \mathbb{X}} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
 $$
 
-#### Example
+#### Examples
 
-Create a random NumPy array:
+Create an 6 x 10 array of random integer observations.
 ```{python}
 >>> import numpy as np
->>> X = np.random.normal(1, size=(6, 10))
+>>> X = np.random.randint(100, size=(6, 10))
+array([[12,  9, 61, 76,  2, 17, 12, 11, 26,  0],
+       [65, 72,  7, 64, 21, 92, 51, 48,  9, 65],
+       [39,  7, 50, 56, 29, 79, 47, 45, 10, 52],
+       [70, 12, 23, 97, 86, 14, 42, 90, 15, 16],
+       [13,  7,  2, 47, 80, 53, 23, 59,  7, 15],
+       [83,  2, 40, 12, 22, 75, 69, 61, 28, 53]])
 ```
 
-Find the medoid:
+Find the medoid, taking the last axis as the number of observations.
 ```{python}
 >>> import hdmedians as hd
 >>> hd.medoid(X)
-array([ 0.98290681,  1.48956002,  0.4354181 ,  2.65441153,  1.526411, 0.25340115])
+array([12, 51, 47, 42, 23, 69])
+```
+
+Take the first axis as the number of observations.
+```{python}
+>>> hd.medoid(X, axis=0)
+array([39,  7, 50, 56, 29, 79, 47, 45, 10, 52])
+```
+
+Only return the index.
+```{python}
+>>> hd.medoid(X, indexonly=True)
+6
+>>> X[:,6]
+array([12, 51, 47, 42, 23, 69])
 ```
 
 ### Geometric Median
