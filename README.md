@@ -6,7 +6,7 @@ This Python package provides a number of fast implementations of various **high-
 algorithms** for multivariate data. Medians are extremely useful due to their high breakdown point of 50% and have
 a number of nice applications in machine learning, computer vision, and high-dimensional statistics.
 
-<img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/fig1.png" align=middle width=600px height=180px />
+<img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/fig1.png" align=center width=600px height=180px />
 
 This package currently has implementations of [medoid](#medoid) and [geometric median](#geometric-median) with 
 support for missing data using `NaN`. 
@@ -25,7 +25,7 @@ Given a finite set <img src="https://github.com/daleroberts/hdmedians/raw\/maste
 the [medoid](https://en.wikipedia.org/wiki/Medoid) <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/273457f251a6f8920e7b6c485c28b74f.png?invert_in_darkmode" align=middle width=13.642034999999998pt height=15.721860000000007pt/> of these observations is given by
 <p align="center"><img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/e2ab5aaffe776fde1073a90f83f75a77.png?invert_in_darkmode" align=middle width=202.62825pt height=45.437205pt/></p>
 
-The current implementation of `medoid` is in vectorized Python and can handle any type supported by [ndarray](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html).
+The current implementation of `medoid` is in vectorized Python and can handle any data type supported by [ndarray](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html).
 
 ### Examples
 
