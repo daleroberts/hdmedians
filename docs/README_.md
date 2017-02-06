@@ -6,6 +6,8 @@ This Python package provides a number of fast implementations of various **high-
 algorithms** for multivariate data. Medians are extremely useful due to their high breakdown point of 50% and have
 a number of nice applications in machine learning, computer vision, and high-dimensional statistics.
 
+<img src="https://github.com/daleroberts/hdmedians/raw/master/docs/fig1.png" align=middle width=10in height=3in />
+
 This package currently has implementations of [medoid](#medoid) and [geometric median](#geometric-median) with 
 support for missing data using `NaN`. 
 
