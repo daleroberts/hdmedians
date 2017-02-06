@@ -7,7 +7,11 @@ algorithms** for multivariate data. Medians are extremely useful due to their hi
 a number of nice applications in machine learning, computer vision, and high-dimensional statistics.
 
 This package currently has implementations of [medoid](#medoid) and [geometric median](#geometric-median) with 
-support for missing data using `NaN`. The latest version of the package is always available on [pypi](https://pypi.python.org/pypi/hdmedians), 
+support for missing data using `NaN`. 
+
+### Installation
+
+The latest version of the package is always available on [pypi](https://pypi.python.org/pypi/hdmedians), 
 so can be easily installed by typing:
 ```{sh}
 pip3 install hdmedians
