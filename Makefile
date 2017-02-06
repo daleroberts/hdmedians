@@ -18,7 +18,7 @@ doc: docs/README_.md
 	@rm -fr *~
 	git rm --cached $(wildcard docs/*.svg) $(wildcard docs/*.png)
 	git add $(wildcard docs/*.svg) $(wildcard docs/*.png)
-	git add README.md README_.md
+	git add README.md docs/README_.md
 	git commit -m 'Update README'
 	git push
 
