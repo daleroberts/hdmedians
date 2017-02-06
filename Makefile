@@ -16,7 +16,7 @@ doc: docs/README_.md
 	@for f in $(wildcard docs/*.svg); do cairosvg -d 300 $$f -o $${f/svg/png}; done
 	@sed -i~ -e 's/svg/png/g; s/rawgit/github/g; s/master/raw\\\/master/g' README.md
 	@rm -fr *~
-	git rm --cached $(wildcard docs/*.svg) $(wildcard docs/*.png)
+	git rm --ignore-unmatch --cached $(wildcard docs/*.svg) $(wildcard docs/*.png)
 	git add $(wildcard docs/*.svg) $(wildcard docs/*.png)
 	git add README.md docs/README_.md
 	git commit -m 'Update README'
