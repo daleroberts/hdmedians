@@ -23,5 +23,5 @@ $$
 $$
 Note there is a subtle difference between the definition of the geometric median and the medoid: the search space 
 for the solution differs (i.e., "$\mathbf{x} \in \mathbf{R}^p$" vs. "$\mathbf{x} \in \mathbb{X}$") and has the 
-effect that the medoid returns one of the observations in $\X$ whereas the geometric median can be described 
+effect that the medoid returns one of the observations in $\mathbb{X}$ whereas the geometric median can be described 
 as a synthetic (not physically observed) observation.
