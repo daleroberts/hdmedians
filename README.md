@@ -42,7 +42,7 @@ Take the first axis as the number of observations.
 array([39,  7, 50, 56, 29, 79, 47, 45, 10, 52])
 ```
 
-Only return the index.
+Since the medoid is one of the observations, the `medoid` function has the ability to only return the index if required.
 ```{python}
 >>> hd.medoid(X, indexonly=True)
 6
@@ -60,3 +60,33 @@ Note there is a subtle difference between the definition of the geometric median
 for the solution differs (i.e., "<img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/af3d250893976cd65ed71ec1c3590423.png?invert_in_darkmode" align=middle width=46.69797pt height=22.61654999999999pt/>" vs. "<img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/fb31cf585f23aa9aadb4bd16aa2d71f8.png?invert_in_darkmode" align=middle width=41.445029999999996pt height=22.027169999999977pt/>") and has the 
 effect that the medoid returns one of the observations in <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/97c2c0ac5d7c079601abd56a54c9475c.png?invert_in_darkmode" align=middle width=12.577454999999999pt height=22.027169999999977pt/> whereas the geometric median can be described 
 as a synthetic (not physically observed) observation.
+
+#### Examples
+
+Create an 6 x 10 array of random float observations.
+```{python}
+>>> import numpy as np
+>>> np.set_printoptions(precision=4, linewidth=200)
+>>> X = np.random.normal(1, size=(6, 10))
+array([[ 1.1079,  0.5763,  0.3072,  1.2205,  0.8596, -1.5082,  2.5955,  2.8251,  1.5908,  0.4575],
+       [ 1.555 ,  1.7903,  1.213 ,  1.1285,  0.0461, -0.4929, -0.1158,  0.5879,  1.5807,  0.5828],
+       [ 2.1583,  3.4429,  0.4166,  1.0192,  0.8308, -0.1468,  2.6329,  2.2239,  0.2168,  0.8783],
+       [ 0.7382,  1.9453,  0.567 ,  0.6797,  1.1654, -0.1556,  0.9934,  0.1857,  1.369 ,  2.1855],
+       [ 0.1727,  0.0835,  0.5416,  1.4416,  1.6921,  1.6636,  1.6421,  1.0687,  0.6075, -0.0301],
+       [ 2.6654,  1.6741,  1.1568,  1.3092,  1.6944,  0.2574,  2.8604,  1.6102,  0.4301, -0.3876]])
+>>> X.dtype
+dtype('float64')
+```
+
+Find the geometric median, taking the last axis as the number of observations.
+```{python}
+>>> import hdmedians as hd
+>>> np.array(hd.geomedian(X))
+array([ 1.0733,  0.8974,  1.1935,  0.9122,  0.9975,  1.3422])
+```
+
+Take the first axis as the number of observations.
+```{python}
+>>> np.array(hd.geomedian(X, axis=0))
+array([ 1.4581,  1.6377,  0.7147,  1.1257,  1.0493, -0.091 ,  1.7907,  1.4168,  0.9587,  0.6195])
+```
