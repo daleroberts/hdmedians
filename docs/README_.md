@@ -25,6 +25,8 @@ $$
   \mathbf{m} := \operatorname{argmin}_{\mathbf{x} \in \mathbb{X}} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
 $$
 
+The current implementation of `medoid` is in vectorized Python and can handle any type supported by [ndarray](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html).
+
 ### Examples
 
 Create an 6 x 10 array of random integer observations.
@@ -73,6 +75,8 @@ for the solution differs (i.e., "$\mathbf{x} \in \mathbf{R}^p$" vs. "$\mathbf{x}
 effect that the medoid returns one of the observations in $\mathbb{X}$ whereas the geometric median can be described 
 as a synthetic (not physically observed) observation.
 
+The current implementation of `geomedian` uses Cython and can handle `float64` or `float32`.
+
 ### Examples
 
 Create an 6 x 10 array of random `float64` observations.
@@ -103,8 +107,12 @@ Take the first axis as the number of observations.
 array([ 1.4581,  1.6377,  0.7147,  1.1257,  1.0493, -0.091 ,  1.7907,  1.4168,  0.9587,  0.6195])
 ```
 
+Convert to `float32` and compute the geometric median.
+```{python}
+>>> X = X.astype(np.float32)
+>>> m = hd.geomedian(X)
+```
+
 ## References
 
   * Small, C. G. (1990). [A survey of multidimensional medians](http://www.jstor.org/stable/1403809). *International Statistical Review/Revue Internationale de Statistique*, 263-277.
-
-  
