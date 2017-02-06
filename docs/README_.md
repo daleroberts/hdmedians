@@ -9,14 +9,15 @@ a number of nice applications in machine learning, computer vision, and high-dim
 ## Medoid
 
 Given a finite set $\mathbb{X}$ of $p$-dimensional observation vectors $\mathbb{X}=\{\mathbf{x}_1, \ldots, \mathbf{x}_n\}$, 
-the medoid $\mathbf{m}$ of these observations is given by
+the [medoid](https://en.wikipedia.org/wiki/Medoid) $\mathbf{m}$ of these observations is given by
 $$
   \mathbf{m} := \operatorname{argmin}_{\mathbf{x} \in \mathbb{X}} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
 $$
 
 ## Geometric Median
 
-Given a finite set $\mathbb{X}$ of $p$-dimensional observation vectors $\mathbb{X}=\{\mathbf{x}_1, \ldots, \mathbf{x}_n\}$, 
+The [geometric median](https://en.wikipedia.org/wiki/Geometric_median) is also known as the 1-median, spatial median,
+Euclidean minisum, or Torricelli point. Given a finite set $\mathbb{X}$ of $p$-dimensional observation vectors $\mathbb{X}=\{\mathbf{x}_1, \ldots, \mathbf{x}_n\}$, 
 the geometric median $\hat{\mu}$ of these observations is given by
 $$
   \hat \mu := \operatorname{argmin}_{\mathbf{x} \in \mathbb{R}^p} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
