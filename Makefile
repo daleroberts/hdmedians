@@ -13,6 +13,7 @@ clean:
 doc: README_.md
 	python3 -m readme2tex --output README.md --svgdir docs --project hdmedians README_.md --rerender --bustcache
 	for f in $(wildcard docs/*.svg); do cairosvg -d 300 $$f -o $${f/svg/png}; done
+	sed -i -e s/svg/png/g README.md
 
 dist:
 	python3 setup.py register sdist upload
