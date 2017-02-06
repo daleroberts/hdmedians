@@ -19,5 +19,5 @@ $$
 Given a finite set $\mathbb{X}$ of $p$-dimensional observation vectors $\mathbb{X}=\{\mathbf{x}_1, \ldots, \mathbf{x}_n\}$, 
 the medoid $\mathbf{m}$ of these observations is given by
 $$
-  \mathbf{m} := \operatorname{argmin}_{\mathbf{x} \in \mathbf{R}^p} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
+  \mathbf{m} := \operatorname{argmin}_{\mathbf{x} \in \mathbb{R}^p} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
 $$
