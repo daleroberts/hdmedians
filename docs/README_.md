@@ -67,7 +67,7 @@ as a synthetic (not physically observed) observation.
 
 #### Examples
 
-Create an 6 x 10 array of random float observations.
+Create an 6 x 10 array of random `float64` observations.
 ```{python}
 >>> import numpy as np
 >>> np.set_printoptions(precision=4, linewidth=200)
@@ -94,3 +94,9 @@ Take the first axis as the number of observations.
 >>> np.array(hd.geomedian(X, axis=0))
 array([ 1.4581,  1.6377,  0.7147,  1.1257,  1.0493, -0.091 ,  1.7907,  1.4168,  0.9587,  0.6195])
 ```
+
+### References
+
+  * Small, C. G. (1990). [A survey of multidimensional medians](http://www.jstor.org/stable/1403809). *International Statistical Review/Revue Internationale de Statistique*, 263-277.
+
+  
