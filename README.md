@@ -6,13 +6,26 @@ This Python package provides a number of fast implementations of various **high-
 algorithms** for multivariate data. Medians are extremely useful due to their high breakdown point of 50% and have
 a number of nice applications in machine learning, computer vision, and high-dimensional statistics.
 
-## Medoid
+### Medoid
 
 Given a finite set <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/97c2c0ac5d7c079601abd56a54c9475c.png?invert_in_darkmode" align=middle width=12.577454999999999pt height=22.027169999999977pt/> of <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/2ec6e630f199f589a2402fdf3e0289d5.png?invert_in_darkmode" align=middle width=8.008308pt height=15.034140000000015pt/>-dimensional observation vectors <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/8ce46e21b12b0c15b3683b17029ce564.png?invert_in_darkmode" align=middle width=111.746745pt height=22.698719999999994pt/>, 
 the [medoid](https://en.wikipedia.org/wiki/Medoid) <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/273457f251a6f8920e7b6c485c28b74f.png?invert_in_darkmode" align=middle width=13.642034999999998pt height=15.721860000000007pt/> of these observations is given by
 <p align="center"><img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/e2ab5aaffe776fde1073a90f83f75a77.png?invert_in_darkmode" align=middle width=202.62825pt height=45.437205pt/></p>
 
-## Geometric Median
+Create a random NumPy array:
+```{python}
+>>> import numpy as np
+>>> X = np.random.normal(1, size=(6, 10))
+```
+
+Find the medoid:
+```{python}
+>>> import hdmedians as hd
+>>> hd.medoid(X)
+array([ 0.98290681,  1.48956002,  0.4354181 ,  2.65441153,  1.526411, 0.25340115])
+```
+
+### Geometric Median
 
 The [geometric median](https://en.wikipedia.org/wiki/Geometric_median) is also known as the 1-median, spatial median,
 Euclidean minisum, or Torricelli point. Given a finite set <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/97c2c0ac5d7c079601abd56a54c9475c.png?invert_in_darkmode" align=middle width=12.577454999999999pt height=22.027169999999977pt/> of <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/2ec6e630f199f589a2402fdf3e0289d5.png?invert_in_darkmode" align=middle width=8.008308pt height=15.034140000000015pt/>-dimensional observation vectors <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/8ce46e21b12b0c15b3683b17029ce564.png?invert_in_darkmode" align=middle width=111.746745pt height=22.698719999999994pt/>, 

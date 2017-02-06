@@ -6,7 +6,7 @@ This Python package provides a number of fast implementations of various **high-
 algorithms** for multivariate data. Medians are extremely useful due to their high breakdown point of 50% and have
 a number of nice applications in machine learning, computer vision, and high-dimensional statistics.
 
-## Medoid
+### Medoid
 
 Given a finite set $\mathbb{X}$ of $p$-dimensional observation vectors $\mathbb{X}=\{\mathbf{x}_1, \ldots, \mathbf{x}_n\}$, 
 the [medoid](https://en.wikipedia.org/wiki/Medoid) $\mathbf{m}$ of these observations is given by
@@ -14,7 +14,20 @@ $$
   \mathbf{m} := \operatorname{argmin}_{\mathbf{x} \in \mathbb{X}} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
 $$
 
-## Geometric Median
+Create a random NumPy array:
+```{python}
+>>> import numpy as np
+>>> X = np.random.normal(1, size=(6, 10))
+```
+
+Find the medoid:
+```{python}
+>>> import hdmedians as hd
+>>> hd.medoid(X)
+array([ 0.98290681,  1.48956002,  0.4354181 ,  2.65441153,  1.526411, 0.25340115])
+```
+
+### Geometric Median
 
 The [geometric median](https://en.wikipedia.org/wiki/Geometric_median) is also known as the 1-median, spatial median,
 Euclidean minisum, or Torricelli point. Given a finite set $\mathbb{X}$ of $p$-dimensional observation vectors $\mathbb{X}=\{\mathbf{x}_1, \ldots, \mathbf{x}_n\}$, 
