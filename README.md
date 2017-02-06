@@ -1,6 +1,6 @@
 # Hdmedians
 
-Did you know there is not a unique way to extend the concept of a [median](https://en.wikipedia.org/wiki/Median) to higher dimensions?
+Did you know there is no unique way to mathematically extend the concept of a [median](https://en.wikipedia.org/wiki/Median) to higher dimensions?
 
 This Python package provides a number of fast implementations of various **high-dimensional median 
 algorithms** for multivariate data. Medians are extremely useful due to their high breakdown point of 50% and have
