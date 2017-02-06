@@ -9,7 +9,7 @@ a number of nice applications in machine learning, computer vision, and high-dim
 This package currently has implementations of [medoid](#medoid) and [geometric median](#geometric-median) with 
 support for missing data using `NaN`. It is easily installed by typing
 ```{sh}
-$ pip install hdmedians
+pip3 install hdmedians
 ```
 
 ### Medoid
