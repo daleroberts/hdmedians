@@ -12,6 +12,8 @@ Given a finite set <img src="https://github.com/daleroberts/hdmedians/raw\/maste
 the [medoid](https://en.wikipedia.org/wiki/Medoid) <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/273457f251a6f8920e7b6c485c28b74f.png?invert_in_darkmode" align=middle width=13.642034999999998pt height=15.721860000000007pt/> of these observations is given by
 <p align="center"><img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/e2ab5aaffe776fde1073a90f83f75a77.png?invert_in_darkmode" align=middle width=202.62825pt height=45.437205pt/></p>
 
+#### Example
+
 Create a random NumPy array:
 ```{python}
 >>> import numpy as np

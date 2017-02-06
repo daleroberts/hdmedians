@@ -14,6 +14,8 @@ $$
   \mathbf{m} := \operatorname{argmin}_{\mathbf{x} \in \mathbb{X}} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
 $$
 
+#### Example
+
 Create a random NumPy array:
 ```{python}
 >>> import numpy as np
