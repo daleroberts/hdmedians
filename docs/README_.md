@@ -13,7 +13,7 @@ so can be easily installed by typing:
 pip3 install hdmedians
 ```
 
-### Medoid
+## Medoid
 
 Given a finite set $\mathbb{X}$ of $p$-dimensional observation vectors $\mathbb{X}=\{\mathbf{x}_1, \ldots, \mathbf{x}_n\}$, 
 the [medoid](https://en.wikipedia.org/wiki/Medoid) $\mathbf{m}$ of these observations is given by
@@ -21,7 +21,7 @@ $$
   \mathbf{m} := \operatorname{argmin}_{\mathbf{x} \in \mathbb{X}} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
 $$
 
-#### Examples
+### Examples
 
 Create an 6 x 10 array of random integer observations.
 ```{python}
@@ -56,7 +56,7 @@ Since the medoid is one of the observations, the `medoid` function has the abili
 array([12, 51, 47, 42, 23, 69])
 ```
 
-### Geometric Median
+## Geometric Median
 
 The [geometric median](https://en.wikipedia.org/wiki/Geometric_median) is also known as the 1-median, spatial median,
 Euclidean minisum, or Torricelli point. Given a finite set $\mathbb{X}$ of $p$-dimensional observation vectors $\mathbb{X}=\{\mathbf{x}_1, \ldots, \mathbf{x}_n\}$, 
@@ -69,7 +69,7 @@ for the solution differs (i.e., "$\mathbf{x} \in \mathbf{R}^p$" vs. "$\mathbf{x}
 effect that the medoid returns one of the observations in $\mathbb{X}$ whereas the geometric median can be described 
 as a synthetic (not physically observed) observation.
 
-#### Examples
+### Examples
 
 Create an 6 x 10 array of random `float64` observations.
 ```{python}
@@ -99,7 +99,7 @@ Take the first axis as the number of observations.
 array([ 1.4581,  1.6377,  0.7147,  1.1257,  1.0493, -0.091 ,  1.7907,  1.4168,  0.9587,  0.6195])
 ```
 
-### References
+## References
 
   * Small, C. G. (1990). [A survey of multidimensional medians](http://www.jstor.org/stable/1403809). *International Statistical Review/Revue Internationale de Statistique*, 263-277.
 

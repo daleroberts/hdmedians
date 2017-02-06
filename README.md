@@ -13,13 +13,13 @@ so can be easily installed by typing:
 pip3 install hdmedians
 ```
 
-### Medoid
+## Medoid
 
 Given a finite set <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/97c2c0ac5d7c079601abd56a54c9475c.png?invert_in_darkmode" align=middle width=12.577454999999999pt height=22.027169999999977pt/> of <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/2ec6e630f199f589a2402fdf3e0289d5.png?invert_in_darkmode" align=middle width=8.008308pt height=15.034140000000015pt/>-dimensional observation vectors <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/8ce46e21b12b0c15b3683b17029ce564.png?invert_in_darkmode" align=middle width=111.746745pt height=22.698719999999994pt/>, 
 the [medoid](https://en.wikipedia.org/wiki/Medoid) <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/273457f251a6f8920e7b6c485c28b74f.png?invert_in_darkmode" align=middle width=13.642034999999998pt height=15.721860000000007pt/> of these observations is given by
 <p align="center"><img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/e2ab5aaffe776fde1073a90f83f75a77.png?invert_in_darkmode" align=middle width=202.62825pt height=45.437205pt/></p>
 
-#### Examples
+### Examples
 
 Create an 6 x 10 array of random integer observations.
 ```{python}
@@ -54,7 +54,7 @@ Since the medoid is one of the observations, the `medoid` function has the abili
 array([12, 51, 47, 42, 23, 69])
 ```
 
-### Geometric Median
+## Geometric Median
 
 The [geometric median](https://en.wikipedia.org/wiki/Geometric_median) is also known as the 1-median, spatial median,
 Euclidean minisum, or Torricelli point. Given a finite set <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/97c2c0ac5d7c079601abd56a54c9475c.png?invert_in_darkmode" align=middle width=12.577454999999999pt height=22.027169999999977pt/> of <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/2ec6e630f199f589a2402fdf3e0289d5.png?invert_in_darkmode" align=middle width=8.008308pt height=15.034140000000015pt/>-dimensional observation vectors <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/8ce46e21b12b0c15b3683b17029ce564.png?invert_in_darkmode" align=middle width=111.746745pt height=22.698719999999994pt/>, 
@@ -65,7 +65,7 @@ for the solution differs (i.e., "<img src="https://github.com/daleroberts/hdmedi
 effect that the medoid returns one of the observations in <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/97c2c0ac5d7c079601abd56a54c9475c.png?invert_in_darkmode" align=middle width=12.577454999999999pt height=22.027169999999977pt/> whereas the geometric median can be described 
 as a synthetic (not physically observed) observation.
 
-#### Examples
+### Examples
 
 Create an 6 x 10 array of random `float64` observations.
 ```{python}
@@ -95,7 +95,7 @@ Take the first axis as the number of observations.
 array([ 1.4581,  1.6377,  0.7147,  1.1257,  1.0493, -0.091 ,  1.7907,  1.4168,  0.9587,  0.6195])
 ```
 
-### References
+## References
 
   * Small, C. G. (1990). [A survey of multidimensional medians](http://www.jstor.org/stable/1403809). *International Statistical Review/Revue Internationale de Statistique*, 263-277.
 
