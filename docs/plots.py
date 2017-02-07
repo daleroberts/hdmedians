@@ -13,7 +13,7 @@ iris = datasets.load_iris()
 X = iris.data
 y = iris.target
 X1 = X[y==1]
-plt.figure(figsize=(10,3))
+plt.figure(figsize=(10,3), dpi=200)
 pcoord(X1, c='#aaaaaa')
 md = hd.medoid(X1, axis=0)
 gm = hd.geomedian(X1, axis=0)
@@ -21,7 +21,7 @@ xx = np.arange(X.shape[1])+1
 plt.plot(xx, md, c='m', ls='--', lw=2, label='Medoid')
 plt.plot(xx, gm, c='r', ls='-', lw=2, label='Geometric Median')
 plt.xticks(xx, iris.feature_names)
-plt.title('Iris observations from ' + iris.target_names[1].title() + ' class')
+plt.title('Iris data set (' + iris.target_names[1].title() + ' class)')
 plt.grid(color='k', ls=':', axis='x')
 plt.legend(framealpha=1.0)
 plt.savefig('docs/fig1.png')
