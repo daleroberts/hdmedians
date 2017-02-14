@@ -4,7 +4,9 @@ hdmedians: High-dimensional medians.
 
 import numpy as np
 from setuptools import setup, find_packages, Extension
-from Cython.Distutils import build_ext
+from setuptools import setup, Extension
+
+#from Cython.Distutils import build_ext
 
 extensions = [Extension('hdmedians.geomedian', 
                         ['hdmedians/geomedian.pyx'],
@@ -20,5 +22,5 @@ setup(name='hdmedians',
       author='Dale Roberts',
       author_email='dale.o.roberts@gmail.com',
       license='GPL3',
-      cmdclass = {'build_ext': build_ext},
+#      cmdclass = {'build_ext': build_ext},
       ext_modules = extensions)

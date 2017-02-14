@@ -27,6 +27,7 @@ doc: docs/README_.md docs/plots.py
 	git push
 
 sdist:
+	@rm -fr dist/
 	python3 setup.py sdist
 
 upload:
