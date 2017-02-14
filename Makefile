@@ -9,6 +9,8 @@ clean:
 	@rm -fr build dist
 	@rm -fr hdmedians/*.so
 	@rm -fr hdmedians/*.c
+	@rm -fr hdmedians.egg-info
+	@rm -fr hdmedians/__pycache__
 
 doc: docs/README_.md docs/plots.py
 #-- requires `pip3 install readme2tex cairosvg`
@@ -24,5 +26,8 @@ doc: docs/README_.md docs/plots.py
 	git commit -m 'Update README'
 	git push
 
-dist:
-	python3 setup.py register sdist upload
+sdist:
+	python3 setup.py sdist
+
+upload:
+	python3 setup.py sdist register upload

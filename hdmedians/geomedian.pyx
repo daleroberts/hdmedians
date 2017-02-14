@@ -379,7 +379,7 @@ cdef nangeomedian_axis_one(floating[:, :] X, floating eps=1e-7,
             
     return y1
 
-def geomedian(floating[:, :] X, size_t axis=1, floating eps=1e-8,
+cpdef geomedian(floating[:, :] X, size_t axis=1, floating eps=1e-8,
                  size_t maxiters=1000):
     """Calculates a Geometric Median for an array `X` of
     shape (p,n).
@@ -395,7 +395,7 @@ def geomedian(floating[:, :] X, size_t axis=1, floating eps=1e-8,
     if axis == 1:
         return geomedian_axis_one(X, eps, maxiters)
 
-def nangeomedian(floating[:, :] X, size_t axis=1, floating eps=1e-7,
+cpdef nangeomedian(floating[:, :] X, size_t axis=1, floating eps=1e-7,
                  size_t maxiters=500):
     """Calculates a Geometric Median for an array `X` of
     shape (p,n).
