@@ -24,7 +24,7 @@ plt.xticks(xx, iris.feature_names)
 plt.title('Iris data set (' + iris.target_names[1].title() + ' class)')
 plt.grid(color='k', ls=':', axis='x')
 plt.legend(framealpha=1.0)
-plt.savefig('docs/fig1.png')
+plt.savefig('docs/fig1.svg')
 
 
 # n, p = (40, 20)
