@@ -3,7 +3,7 @@
 Did you know there is no unique way to mathematically extend the concept of a
 [median](https://en.wikipedia.org/wiki/Median) to higher dimensions?
 
-Various definitions of a *high-dimensional median* exist and this Python
+Various definitions of a **high-dimensional median** exist and this Python
 package provides a number of fast implementations of a number of these.
 Medians are extremely useful due to their high breakdown point (up to 50%
 contamination) and have a number of nice applications in machine learning,
