@@ -1,17 +1,20 @@
 # Hdmedians
 
-Did you know there is no unique way to mathematically extend the concept of a [median](https://en.wikipedia.org/wiki/Median) to higher dimensions?
+Did you know there is no unique way to mathematically extend the concept of a
+[median](https://en.wikipedia.org/wiki/Median) to higher dimensions?
 
-This Python package provides a number of fast implementations of various **high-dimensional median 
-algorithms** for multivariate data. Medians are extremely useful due to their high breakdown point of 50% and have
-a number of nice applications in machine learning, computer vision, and high-dimensional statistics.
+Various definitions of a *high-dimensional median* exist and this Python
+package provides a number of fast implementations of a number of these.
+Medians are extremely useful due to their high breakdown point (up to 50%
+contamination) and have a number of nice applications in machine learning,
+computer vision, and high-dimensional statistics.
 
 <p align="center">
 <img src="https://github.com/daleroberts/hdmedians/raw\/master/docs/fig1.png" width=600px height=180px />
 </p>
 
-This package currently has implementations of [medoid](#medoid) and [geometric median](#geometric-median) with 
-support for missing data using `NaN`. 
+This package currently has implementations of [medoid](#medoid) and [geometric
+median](#geometric-median) with support for missing data using `NaN`. 
 
 ### Installation
 
