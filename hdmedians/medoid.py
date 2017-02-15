@@ -31,7 +31,8 @@ def medoid(a, axis=1, indexonly=False):
             return idx
         else:
             return a[:, idx]
-    elif axis == 0:
+
+    if axis == 0:
         diff = a[:, None, :] - a
         ssum = np.einsum('ijk,ijk->ij', diff, diff)
         idx = np.argmin(np.sum(np.sqrt(ssum), axis=1))
@@ -39,8 +40,8 @@ def medoid(a, axis=1, indexonly=False):
             return idx
         else:
             return a[idx, :]
-    else:
-        raise ValueError("Array must be two-dimensional.")
+
+    raise IndexError("axis {} out of bounds".format(axis)) 
 
 
 def nanmedoid(a, axis=1, indexonly=False):
@@ -74,7 +75,8 @@ def nanmedoid(a, axis=1, indexonly=False):
             return idx
         else:
             return a[:, idx]
-    elif axis == 0:
+
+    if axis == 0:
         diff = a[:, None, :] - a
         ssum = np.einsum('ijk,ijk->ij', diff, diff)
         dist = np.nansum(np.sqrt(ssum), axis=1) 
@@ -85,5 +87,5 @@ def nanmedoid(a, axis=1, indexonly=False):
             return idx
         else:
             return a[idx, :]
-    else:
-        raise ValueError("Array must be two-dimensional.")
+
+    raise IndexError("axis {} out of bounds".format(axis)) 

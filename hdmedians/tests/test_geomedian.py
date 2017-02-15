@@ -103,3 +103,31 @@ def test_geomedian_two_obs():
     m = hd.geomedian(data, axis=0)
     r = np.array([1.5, 1.5, 1.0])
     assert_array_almost_equal(m, r, decimal=3)
+
+
+def test_nangeomedian_axis_zero_one_good():
+    data = np.array([[1.0, np.nan, 1.0],
+                     [2.0, 1.0, 1.0]])
+    m = hd.nangeomedian(data, axis=0)
+    r = np.nanmedian(data, axis=0)
+    assert_array_almost_equal(m, r, decimal=3)
+
+
+def test_nangeomedian_axis_one_two_good():
+    data = np.array([[1.0, np.nan, 1.0],
+                     [2.0, 1.0, 1.0]])
+    m = hd.nangeomedian(data, axis=1)
+    r = np.nanmedian(data, axis=1)
+    assert_array_almost_equal(m, r, decimal=3)
+
+
+def test_nangeomedian_axis_bad():
+    data = np.array([[1.0, np.nan, 1.0],
+                     [2.0, 1.0, 1.0]])
+    assert_raises(IndexError, hd.nangeomedian, data, axis=2)
+
+
+def test_nangeomedian_all_nan():
+    data = np.array([[np.nan, np.nan, np.nan],
+                     [np.nan, np.nan, np.nan]])
+    assert_raises(ValueError, hd.nangeomedian, data)

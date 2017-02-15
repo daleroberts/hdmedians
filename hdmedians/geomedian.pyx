@@ -4,8 +4,9 @@
 # cython: wraparound=False
 
 import numpy as np
+import warnings
 
-from libc.math cimport isnan, sqrt, acos, fabs as abs
+from libc.math cimport isnan, sqrt, acos, fabs
 
 cimport numpy as cnp
 
@@ -97,7 +98,7 @@ cdef geomedian_axis_zero(floating[:, :] X, floating eps=1e-7,
 
             for i in range(p):
                 Di = dist_euclidean(X[i, :], y)
-                if abs(Di) > eps:
+                if fabs(Di) > eps:
                     Dinv[i] = 1. / Di
                 else:
                     Dinv[i] = 0.
@@ -111,13 +112,13 @@ cdef geomedian_axis_zero(floating[:, :] X, floating eps=1e-7,
             for j in range(n):
                 total = 0.
                 for i in range(p):
-                    if abs(D[i]) > eps:
+                    if fabs(D[i]) > eps:
                         total += W[i] * X[i, j]
                 T[j] = total
 
             nzeros = p
             for i in range(p):
-                if abs(D[i]) > eps:
+                if fabs(D[i]) > eps:
                     nzeros -= 1
 
             if nzeros == 0:
@@ -177,7 +178,7 @@ cdef geomedian_axis_one(floating[:, :] X, floating eps=1e-7,
             for i in range(n):
                 Di = dist_euclidean(X[:, i], y)
                 D[i] = Di
-                if abs(Di) > eps:
+                if fabs(Di) > eps:
                     Dinv[i] = 1. / Di
                 else:
                     Dinv[i] = 0.
@@ -190,13 +191,13 @@ cdef geomedian_axis_one(floating[:, :] X, floating eps=1e-7,
             for j in range(p):
                 total = 0.
                 for i in range(n):
-                    if abs(D[i]) > eps:
+                    if fabs(D[i]) > eps:
                         total += W[i] * X[j, i]
                 T[j] = total
 
             nzeros = n
             for i in range(n):
-                if abs(D[i]) > eps:
+                if fabs(D[i]) > eps:
                     nzeros -= 1
 
             if nzeros == 0:
@@ -256,7 +257,7 @@ cdef nangeomedian_axis_zero(floating[:, :] X, floating eps=1e-7,
 
             for i in range(p):
                 Di = dist_euclidean(X[i, :], y)
-                if abs(Di) > 0.:
+                if fabs(Di) > 0.:
                     Dinv[i] = 1. / Di
                 else:
                     Dinv[i] = nan
@@ -279,7 +280,7 @@ cdef nangeomedian_axis_zero(floating[:, :] X, floating eps=1e-7,
             for i in range(p):
                 if isnan(D[i]):
                     nzeros -= 1
-                elif abs(D[i]) > 0.:
+                elif fabs(D[i]) > 0.:
                     nzeros -= 1
 
             if nzeros == 0:
@@ -337,7 +338,7 @@ cdef nangeomedian_axis_one(floating[:, :] X, floating eps=1e-7,
 
             for i in range(n):
                 Di = dist_euclidean(X[:, i], y)
-                if abs(Di) > 0.:
+                if fabs(Di) > 0.:
                     Dinv[i] = 1. / Di
                 else:
                     Dinv[i] = nan
@@ -360,7 +361,7 @@ cdef nangeomedian_axis_one(floating[:, :] X, floating eps=1e-7,
             for i in range(n):
                 if isnan(D[i]):
                     nzeros -= 1
-                elif abs(D[i]) > 0.:
+                elif fabs(D[i]) > 0.:
                     nzeros -= 1
 
             if nzeros == 0:
@@ -395,13 +396,15 @@ cpdef geomedian(floating[:, :] X, size_t axis=1, floating eps=1e-8,
     If the median is calculated across axis=1 (default)
     (the axis of size n) an array of size (p,1) is
     returned.
-    
-    Author: Dale Roberts <dale.roberts@anu.edu.au>  
     """
     if axis == 0:
         return geomedian_axis_zero(X, eps, maxiters)
+
     if axis == 1:
         return geomedian_axis_one(X, eps, maxiters)
+        
+    raise IndexError("axis {} out of bounds".format(axis)) 
+
 
 cpdef nangeomedian(floating[:, :] X, size_t axis=1, floating eps=1e-7,
                  size_t maxiters=500):
@@ -413,10 +416,23 @@ cpdef nangeomedian(floating[:, :] X, size_t axis=1, floating eps=1e-7,
     returned.
     
     Missing values should be assigned as `np.nan`.
-
-    Author: Dale Roberts <dale.roberts@anu.edu.au>  
     """
     if axis == 0:
-        return nangeomedian_axis_zero(X, eps, maxiters)
+        ngood = np.count_nonzero(~np.isnan(X).any(axis=1))
+        if ngood == 0:
+            raise ValueError("All-NaN slice encountered")
+        elif ngood < 3:
+            return np.nanmedian(X, axis=axis)
+        else:
+            return nangeomedian_axis_zero(X, eps, maxiters)
+
     if axis == 1:
-        return nangeomedian_axis_one(X, eps, maxiters)
+        ngood = np.count_nonzero(~np.isnan(X).any(axis=0))
+        if ngood == 0:
+            raise ValueError("All-NaN slice encountered")
+        elif ngood < 3:
+            return np.nanmedian(X, axis=axis)
+        else:
+            return nangeomedian_axis_one(X, eps, maxiters)
+
+    raise IndexError("axis {} out of bounds".format(axis)) 

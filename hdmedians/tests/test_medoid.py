@@ -85,7 +85,7 @@ def test_medoid_axis_one():
 
 
 def test_medoid_axis_bad():
-    assert_raises(ValueError, hd.medoid, DATA1[:, :, None], axis=2)
+    assert_raises(IndexError, hd.medoid, DATA1, axis=2)
 
 
 def test_medoid_noaxis_indexonly():
@@ -109,6 +109,7 @@ def test_medoid_1d():
     r = np.median(data, axis=1)
     assert_array_almost_equal(m, r, decimal=3)
 
+
 def test_medoid_one_obs():
     data = np.array([[1.0, 2.0, 1.0]])
     m = hd.medoid(data, axis=0)
@@ -123,12 +124,20 @@ def test_medoid_two_obs():
     r = np.array([1.0, 2.0, 1.0])
     assert_array_almost_equal(m, r, decimal=3)
 
+
 def test_nanmedoid_two_obs():
     data = np.array([[1.0, np.nan, 1.0],
                      [2.0, 1.0, 1.0]])
     m = hd.nanmedoid(data, axis=0)
     r = np.array([2.0, 1.0, 1.0])
     assert_array_almost_equal(m, r, decimal=3)
+
+
+def test_nanmedoid_all_nan():
+    data = np.array([[np.nan, np.nan, np.nan],
+                     [np.nan, np.nan, np.nan]])
+    assert_raises(ValueError, hd.nanmedoid, data)
+
 
 def test_nanmedoid_axis_zero():
     data = np.array([[1.0, np.nan, 1.0],
@@ -137,6 +146,7 @@ def test_nanmedoid_axis_zero():
     r = np.array([2.0, 1.0, 1.0])
     assert_array_almost_equal(m, r, decimal=3)
 
+
 def test_nanmedoid_axis_one():
     data = np.array([[1.0, np.nan, 1.0],
                      [2.0, 1.0, 1.0]])
@@ -144,17 +154,34 @@ def test_nanmedoid_axis_one():
     r = np.array([1.0, 2.0])
     assert_array_almost_equal(m, r, decimal=3)
 
+
 def test_nanmedoid_axis_zero_indexonly():
     data = np.array([[1.0, np.nan, 1.0],
                      [2.0, 1.0, 1.0]])
     m = hd.nanmedoid(data, axis=0, indexonly=True)
     assert_equal(m, 1)
-    
+
+
 def test_nanmedoid_axis_one_indexonly():
     data = np.array([[1.0, np.nan, 1.0],
                      [2.0, 1.0, 1.0]])
     m = hd.nanmedoid(data, axis=1, indexonly=True)
     assert_equal(m, 0)
 
+
 def test_nanmedoid_axis_bad():
-    assert_raises(ValueError, hd.nanmedoid, DATA1[:, :, None], axis=2)
+    assert_raises(IndexError, hd.nanmedoid, DATA1, axis=2)
+
+
+def test_nanmedoid_two_obs():
+    data = np.array([[1.0, np.nan, 1.0],
+                     [2.0, 1.0, 1.0]])
+    m = hd.nanmedoid(data, axis=0)
+    r = np.array([2.0, 1.0, 1.0])
+    assert_array_almost_equal(m, r, decimal=3)
+
+
+def test_nanmedoid_all_nan():
+    data = np.array([[np.nan, np.nan, np.nan],
+                     [np.nan, np.nan, np.nan]])
+    assert_raises(ValueError, hd.nanmedoid, data)
