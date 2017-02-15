@@ -35,20 +35,24 @@ DATA1 = np.array([[693, 990, 1281, 2101, 3524, 2577],
                   [248, 618, 378, 3899, 1921, 938],
                   [308, 659, 522, 3281, 1987, 1100]]).T
 
+
 def test_medoid_shape_noaxis():
     a = np.random.normal(1, size=(6, 10))
     m = hd.medoid(a)
     assert_equal(m.shape, (6, ))
 
-def test_medoid_shape_axis_zero():    
+
+def test_medoid_shape_axis_zero():
     a = np.random.normal(1, size=(6, 10))
     m = hd.medoid(a, axis=0)
     assert_equal(m.shape, (10, ))
 
-def test_medoid_shape_axis_one():    
+
+def test_medoid_shape_axis_one():
     a = np.random.normal(1, size=(6, 10))
     m = hd.medoid(a, axis=1)
     assert_equal(m.shape, (6, ))
+
 
 def test_medoid_in_set_random():
     a = np.random.normal(1, size=(6, 10))
@@ -57,10 +61,12 @@ def test_medoid_in_set_random():
     idx = s.index(list(m))
     assert_true(idx > -1)
 
+
 def test_medoid_noaxis():
     m = hd.medoid(DATA1)
-    r = np.array([ 721,  966, 1227, 2249, 3577, 2693])                  
+    r = np.array([721,  966, 1227, 2249, 3577, 2693])
     assert_equal(m, r)
+
 
 def test_medoid_axis_zero():
     m = hd.medoid(DATA1, axis=0)
@@ -68,25 +74,52 @@ def test_medoid_axis_zero():
                   1227, 1213, 1375, 1454, 1353,
                   1592, 1606, 1609, 1640, 1556,
                   1296, 548, 1527, 938, 1082,
-                  1456, 798, 972, 378, 522])                  
+                  1456, 798, 972, 378, 522])
     assert_equal(m, r)
+
 
 def test_medoid_axis_one():
     m = hd.medoid(DATA1, axis=1)
-    r = np.array([ 721,  966, 1227, 2249, 3577, 2693])                  
+    r = np.array([721,  966, 1227, 2249, 3577, 2693])
     assert_equal(m, r)
 
+
 def test_medoid_axis_bad():
-    assert_raises(ValueError, hd.medoid, DATA1[:,:,None], axis=2)
+    assert_raises(ValueError, hd.medoid, DATA1[:, :, None], axis=2)
+
 
 def test_medoid_noaxis_indexonly():
     m = hd.medoid(DATA1, indexonly=True)
     assert_equal(m, 5)
 
+
 def test_medoid_axis_zero_indexonly():
     m = hd.medoid(DATA1, axis=0, indexonly=True)
     assert_equal(m, 2)
 
+
 def test_medoid_axis_one_indexonly():
     m = hd.medoid(DATA1, axis=1, indexonly=True)
     assert_equal(m, 5)
+
+
+def test_medoid_1d():
+    data = np.ones((1, 3))
+    m = hd.medoid(data, axis=1)
+    r = np.median(data, axis=1)
+    assert_array_almost_equal(m, r, decimal=3)
+
+
+def test_medoid_one_obs():
+    data = np.array([[1.0, 2.0, 1.0]])
+    m = hd.medoid(data, axis=0)
+    r = np.array([1.0, 2.0, 1.0])
+    assert_array_almost_equal(m, r, decimal=3)
+
+
+def test_medoid_two_obs():
+    data = np.array([[1.0, 2.0, 1.0],
+                     [2.0, 1.0, 1.0]])
+    m = hd.medoid(data, axis=0)
+    r = np.array([1.0, 2.0, 1.0])
+    assert_array_almost_equal(m, r, decimal=3)

@@ -72,6 +72,9 @@ cdef geomedian_axis_zero(floating[:, :] X, floating eps=1e-7,
 
     cdef floating[:] y = np.mean(X, axis=0)
 
+    if p == 0:
+        return y
+
     if floating is cnp.float32_t:
         dtype = np.float32
     else:
@@ -138,8 +141,8 @@ cdef geomedian_axis_zero(floating[:, :] X, floating eps=1e-7,
 
             y[:] = y1
             iteration = iteration + 1
-            
-    return y1
+    
+    return y
 
 cdef geomedian_axis_one(floating[:, :] X, floating eps=1e-7,
                            size_t maxiters=500):
@@ -147,6 +150,9 @@ cdef geomedian_axis_one(floating[:, :] X, floating eps=1e-7,
     cdef size_t n = X.shape[1]
 
     cdef floating[:] y = np.mean(X, axis=1)
+
+    if n == 1:
+        return y
 
     if floating is cnp.float32_t:
         dtype = np.float32
@@ -215,7 +221,9 @@ cdef geomedian_axis_one(floating[:, :] X, floating eps=1e-7,
             y[:] = y1
             iteration = iteration + 1
             
-    return y1
+    return y
+
+
 
 cdef nangeomedian_axis_zero(floating[:, :] X, floating eps=1e-7,
                             size_t maxiters=500):

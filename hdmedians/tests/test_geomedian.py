@@ -35,8 +35,6 @@ DATA1 = np.array([[693, 990, 1281, 2101, 3524, 2577],
                   [248, 618, 378, 3899, 1921, 938],
                   [308, 659, 522, 3281, 1987, 1100]]).T
 
-np.savetxt("data1.csv", DATA1, delimiter=',')
-
 
 def test_geomedian_shape_noaxis():
     a = np.random.normal(1, size=(6, 10))
@@ -76,3 +74,32 @@ def test_geomedian_axis_one():
     r = np.array([684.9332, 962.1752, 1247.556, 2340.647, 3473.594, 2584.103])
     assert_array_almost_equal(m, r, decimal=3)
 
+
+def test_geomedian_same_values():
+    data = np.ones((4, 2))
+    m = hd.geomedian(data, axis=1)
+    print(np.sum(m))
+    r = np.median(data, axis=1)
+    assert_array_almost_equal(m, r, decimal=3)
+
+
+def test_geomedian_1d():
+    data = np.ones((1, 3))
+    m = hd.geomedian(data, axis=1)
+    r = np.median(data, axis=1)
+    assert_array_almost_equal(m, r, decimal=3)
+
+
+def test_geomedian_one_obs():
+    data = np.array([[1.0, 2.0, 1.0]])
+    m = hd.geomedian(data, axis=0)
+    r = np.array([1.0, 2.0, 1.0])
+    assert_array_almost_equal(m, r, decimal=3)
+
+
+def test_geomedian_two_obs():
+    data = np.array([[1.0, 2.0, 1.0],
+                     [2.0, 1.0, 1.0]])
+    m = hd.geomedian(data, axis=0)
+    r = np.array([1.5, 1.5, 1.0])
+    assert_array_almost_equal(m, r, decimal=3)
