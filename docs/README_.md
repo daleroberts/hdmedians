@@ -10,7 +10,7 @@ contamination) and have a number of nice applications in machine learning,
 computer vision, and high-dimensional statistics.
 
 <p align="center">
-<img src="https://github.com/daleroberts/hdmedians/master/docs/fig1.png" width=600px height=180px />
+<img src="https://rawgit.com/daleroberts/hdmedians/master/docs/fig1.png" width=600px height=180px />
 </p>
 
 This package currently has implementations of [medoid](#medoid) and [geometric
@@ -78,7 +78,7 @@ $$
   \hat \mu := \operatorname{argmin}_{\mathbf{x} \in \mathbb{R}^p} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
 $$
 Note there is a subtle difference between the definition of the geometric median and the medoid: the search space 
-for the solution differs (i.e., "$\mathbf{x} \in \mathbf{R}^p$" vs. "$\mathbf{x} \in \mathbb{X}$") and has the 
+for the solution differs (i.e., $\mathbf{x} \in \mathbf{R}^p$ vs. $\mathbf{x} \in \mathbb{X}$) and has the 
 effect that the medoid returns one of the observations in $\mathbb{X}$ whereas the geometric median can be described 
 as a synthetic (not physically observed) observation.
 
