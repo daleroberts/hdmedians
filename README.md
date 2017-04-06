@@ -30,7 +30,11 @@ Given a finite set <img src="https://rawgit.com/daleroberts/hdmedians/master/doc
 the [medoid](https://en.wikipedia.org/wiki/Medoid) <img src="https://rawgit.com/daleroberts/hdmedians/master/docs/273457f251a6f8920e7b6c485c28b74f.svg?invert_in_darkmode" align=middle width=13.642034999999998pt height=15.721860000000007pt/> of these observations is given by
 <p align="center"><img src="https://rawgit.com/daleroberts/hdmedians/master/docs/e2ab5aaffe776fde1073a90f83f75a77.svg?invert_in_darkmode" align=middle width=202.62825pt height=45.437205pt/></p>
 
-The current implementation of `medoid` is in vectorized Python and can handle any data type supported by [ndarray](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html).
+The current implementation of `medoid` is in vectorized Python and can handle
+any data type supported by
+[ndarray](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html).
+If you would like the algorithm to take care of missing values encoded as `nan`
+then you can use the `nanmedoid` function.
 
 ### Examples
 
@@ -77,7 +81,9 @@ Note there is a subtle difference between the definition of the geometric median
 for the solution differs and has the effect that the medoid returns one of the true observations whereas the geometric median can be described 
 as a synthetic (not physically observed) observation.
 
-The current implementation of `geomedian` uses Cython and can handle `float64` or `float32`.
+The current implementation of `geomedian` uses Cython and can handle `float64`
+or `float32`. If you would like the algorithm to take care of missing values
+encoded as `nan` then you can use the `nangeomedian` function.
 
 ### Examples
 

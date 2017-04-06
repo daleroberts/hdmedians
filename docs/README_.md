@@ -32,7 +32,11 @@ $$
   \mathbf{m} := \operatorname{argmin}_{\mathbf{x} \in \mathbb{X}} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
 $$
 
-The current implementation of `medoid` is in vectorized Python and can handle any data type supported by [ndarray](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html).
+The current implementation of `medoid` is in vectorized Python and can handle
+any data type supported by
+[ndarray](https://docs.scipy.org/doc/numpy/reference/generated/numpy.ndarray.html).
+If you would like the algorithm to take care of missing values encoded as `nan`
+then you can use the `nanmedoid` function.
 
 ### Examples
 
@@ -81,7 +85,9 @@ Note there is a subtle difference between the definition of the geometric median
 for the solution differs and has the effect that the medoid returns one of the true observations whereas the geometric median can be described 
 as a synthetic (not physically observed) observation.
 
-The current implementation of `geomedian` uses Cython and can handle `float64` or `float32`.
+The current implementation of `geomedian` uses Cython and can handle `float64`
+or `float32`. If you would like the algorithm to take care of missing values
+encoded as `nan` then you can use the `nangeomedian` function.
 
 ### Examples
 
