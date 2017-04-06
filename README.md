@@ -74,8 +74,7 @@ Euclidean minisum, or Torricelli point. Given a finite set <img src="https://raw
 the geometric median <img src="https://rawgit.com/daleroberts/hdmedians/master/docs/fb2c407771af04095047a75aab1127e2.svg?invert_in_darkmode" align=middle width=9.973589999999998pt height=22.747889999999988pt/> of these observations is given by
 <p align="center"><img src="https://rawgit.com/daleroberts/hdmedians/master/docs/24a6cad3853187faa18a0cf58c6515c8.svg?invert_in_darkmode" align=middle width=204.38385pt height=45.437205pt/></p>
 Note there is a subtle difference between the definition of the geometric median and the medoid: the search space 
-for the solution differs (i.e., <img src="https://rawgit.com/daleroberts/hdmedians/master/docs/af3d250893976cd65ed71ec1c3590423.svg?invert_in_darkmode" align=middle width=46.69797pt height=22.61654999999999pt/> vs. <img src="https://rawgit.com/daleroberts/hdmedians/master/docs/fb31cf585f23aa9aadb4bd16aa2d71f8.svg?invert_in_darkmode" align=middle width=41.445029999999996pt height=22.027169999999977pt/>) and has the 
-effect that the medoid returns one of the observations in <img src="https://rawgit.com/daleroberts/hdmedians/master/docs/97c2c0ac5d7c079601abd56a54c9475c.svg?invert_in_darkmode" align=middle width=12.577454999999999pt height=22.027169999999977pt/> whereas the geometric median can be described 
+for the solution differs and has the effect that the medoid returns one of the true observations whereas the geometric median can be described 
 as a synthetic (not physically observed) observation.
 
 The current implementation of `geomedian` uses Cython and can handle `float64` or `float32`.

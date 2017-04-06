@@ -78,8 +78,7 @@ $$
   \hat \mu := \operatorname{argmin}_{\mathbf{x} \in \mathbb{R}^p} \sum_{i=1}^n \|\mathbf{x} - \mathbf{x}_i\|.
 $$
 Note there is a subtle difference between the definition of the geometric median and the medoid: the search space 
-for the solution differs (i.e., $\mathbf{x} \in \mathbf{R}^p$ vs. $\mathbf{x} \in \mathbb{X}$) and has the 
-effect that the medoid returns one of the observations in $\mathbb{X}$ whereas the geometric median can be described 
+for the solution differs and has the effect that the medoid returns one of the true observations whereas the geometric median can be described 
 as a synthetic (not physically observed) observation.
 
 The current implementation of `geomedian` uses Cython and can handle `float64` or `float32`.
