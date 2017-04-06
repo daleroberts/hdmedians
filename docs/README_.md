@@ -10,7 +10,7 @@ contamination) and have a number of nice applications in machine learning,
 computer vision, and high-dimensional statistics.
 
 <p align="center">
-<img src="https://rawgit.com/daleroberts/hdmedians/master/docs/fig1.png" width=600px height=180px />
+<img src="https://rawgit.com/daleroberts/hdmedians/master/docs/fig1.svg" width=600px height=180px />
 </p>
 
 This package currently has implementations of [medoid](#medoid) and [geometric
