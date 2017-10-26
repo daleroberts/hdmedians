@@ -1,3 +1,5 @@
+# Copyright (C) 2017 Dale Roberts - All Rights Reserved
+
 # cython: cdivision=True
 # cython: boundscheck=False
 # cython: nonecheck=False
