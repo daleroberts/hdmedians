@@ -21,6 +21,6 @@ setup(name='hdmedians',
       url='http://github.com/daleroberts/hdmedians',
       author='Dale Roberts',
       author_email='dale.o.roberts@gmail.com',
-      license='GPL3',
+      license='Apache License, Version 2.0',
 #      cmdclass = {'build_ext': build_ext},
       ext_modules = extensions)
