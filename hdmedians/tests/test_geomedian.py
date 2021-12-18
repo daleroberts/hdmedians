@@ -4,9 +4,9 @@ Tests.
 
 import numpy as np
 import hdmedians as hd
+import pytest
 
 from numpy.testing import assert_equal, assert_array_almost_equal
-from nose.tools import assert_true, assert_raises
 
 # shape (6, 25)
 DATA1 = np.array([[693, 990, 1281, 2101, 3524, 2577],
@@ -124,10 +124,12 @@ def test_nangeomedian_axis_one_two_good():
 def test_nangeomedian_axis_bad():
     data = np.array([[1.0, np.nan, 1.0],
                      [2.0, 1.0, 1.0]])
-    assert_raises(IndexError, hd.nangeomedian, data, axis=2)
+    with pytest.raises(IndexError):
+        hd.nangeomedian(data, axis=2)
 
 
 def test_nangeomedian_all_nan():
     data = np.array([[np.nan, np.nan, np.nan],
                      [np.nan, np.nan, np.nan]])
-    assert_raises(ValueError, hd.nangeomedian, data)
+    with pytest.raises(ValueError):
+        hd.nangeomedian(data)
