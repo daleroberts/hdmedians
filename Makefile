@@ -3,7 +3,7 @@ inplace:
 	python3 setup.py build_ext -i
 
 test: inplace
-	nosetests
+	py.test
 
 clean:
 	@rm -fr build dist
