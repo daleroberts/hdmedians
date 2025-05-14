@@ -1,2 +1,18 @@
+[project]
+name = "hdmedians"
+description = "High-dimensional medians"
+authors = [
+    {name = "Dale Roberts", email = "dale.o.roberts@gmail.com"}
+]
+license = "Apache-2.0"
+version = "0.14.2"
+dependencies = [
+    "numpy>=1.21"
+]
+
+[project.urls]
+Homepage = "http://github.com/daleroberts/hdmedians"
+
 [build-system]
-requires = ["Cython>=0.23", "oldest-supported-numpy", "setuptools", "wheel"]
+requires = ["Cython", "numpy>=2.0.0rc1", "setuptools"]
+build-backend = "setuptools.build_meta"
