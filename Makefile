@@ -3,7 +3,7 @@ inplace:
 	python3 setup.py build_ext -i
 
 test: inplace
-	nosetests
+	python3 -m pytest hdmedians
 
 clean:
 	@rm -fr build dist

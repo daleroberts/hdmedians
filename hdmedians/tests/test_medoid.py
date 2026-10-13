@@ -5,8 +5,7 @@ Tests.
 import numpy as np
 import hdmedians as hd
 
-from numpy.testing import assert_equal, assert_array_almost_equal
-from nose.tools import assert_true, assert_raises
+from numpy.testing import assert_equal, assert_array_almost_equal, assert_raises
 
 # shape (6, 25)
 DATA1 = np.array([[693, 990, 1281, 2101, 3524, 2577],
@@ -59,7 +58,7 @@ def test_medoid_in_set_random():
     s = [list(x) for x in a.T]
     m = hd.medoid(a)
     idx = s.index(list(m))
-    assert_true(idx > -1)
+    assert idx > -1
 
 
 def test_medoid_noaxis():
