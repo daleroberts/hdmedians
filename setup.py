@@ -14,7 +14,7 @@ extensions = [Extension('hdmedians.geomedian',
 
 setup(name='hdmedians',
       packages=find_packages(),
-      setup_requires=['nose>=1.0', 'Cython>=0.23'],
+      setup_requires=['Cython>=0.23'],
       install_requires=['numpy>=1.21', 'Cython>=0.23'],
       version='0.14.2',
       description='High-dimensional medians',

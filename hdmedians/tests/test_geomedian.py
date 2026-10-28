@@ -5,8 +5,7 @@ Tests.
 import numpy as np
 import hdmedians as hd
 
-from numpy.testing import assert_equal, assert_array_almost_equal
-from nose.tools import assert_true, assert_raises
+from numpy.testing import assert_equal, assert_array_almost_equal, assert_raises
 
 # shape (6, 25)
 DATA1 = np.array([[693, 990, 1281, 2101, 3524, 2577],
